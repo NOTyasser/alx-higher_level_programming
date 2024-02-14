@@ -1,16 +1,17 @@
 #!/usr/bin/node
-function factorial (n) {
-    if (n <= 1) {
+
+function factorial (num) {
+    if (num === 1 || num === 0) {
       return 1;
+    } else {
+      return num * factorial(num - 1);
     }
-    return n * factorial(n - 1);
   }
-  const args = process.argv.slice(2);
-  let res = 0;
-  if (!args[0]) {
-    res = 1;
-    console.log(res);
-  } else if (!isNaN(args[0])) {
-    res = factorial(parseInt(args[0]));
-    console.log(res);
+  
+  if (isNaN(Number(process.argv[2]))) {
+    console.log(1);
+  } else {
+    const result = factorial(Number(process.argv[2]));
+    console.log(result);
   }
+  
